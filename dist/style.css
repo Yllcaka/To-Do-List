@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow: hidden;
+}
+/* ::-webkit-scrollbar {
+    width: 1px;
+    background: transparent;
+} */
+
+#To-Do-List{
+    display: flex;
+    flex-direction: row;
+}
+
+#Projects{
+    flex: 1;
+    background: hsl(105, 14%, 62%);
+    height: 100vh;
+    overflow: scroll;
+}
+.project-header{
+    background: #7D9973;
+    border: 10px solid #97AC90;
+    box-sizing: border-box;
+    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #D9E6D4;
+    padding: 30px;
+    padding-right: 0;
+}
+
+.project{
+    background: #7D9973;
+    margin: 45px 0;
+    padding: 10px 0;
+    padding-left: 5%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color: #D9E5D4;
+    
+}
+
+#Tasks{
+    flex: 4;
+    background: rgb(226, 225, 225);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left:2%;
+    border-radius: 20px;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 100vh;
+    
+}
+
+.tasks{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.task-header{
+    color: #979561;
+    background: #FBE3E3;
+    border: 10px solid #E2E1E1;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    padding-left: 5%;
+    padding-right: 0;
+}
+.task{
+    color: white;
+    margin: 10px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #97AC90;
+
+}
+
+.task:hover > *{
+    filter: brightness(1.1);
+}
+.task-description{
+    background: #7D9973;
+
+    box-sizing: border-box;
+    padding: 30px;
+    padding-left: 5%;
+    padding-right: 0;
+    margin: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+
+.task-title{
+    background: #7D9973;
+    margin: 10px;
+    padding: 15px;
+    padding-left: 5%;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+
+.priority-high {
+    /* border-color: #EB7971; */
+    background: #EB7971;;
+}
+.priority-moderate {
+    /* border-color: #90B9C1; */
+    background: #90B9C1;
+} 
+
+.priority-high .task-title,
+.priority-high .task-description{
+    background-color: #D4655E;
+}
+
+.priority-moderate .task-title,
+.priority-moderate .task-description{
+    background-color: #739299;
+}
+
+
+
+
+/* 
+
+Responsive Stuff
+@media
+#To-Do-List{
+    flex-direction: column;
+}
+#To-Do-List > div{
+    flex: 1;
+}
