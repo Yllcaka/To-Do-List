@@ -5,9 +5,19 @@ import { TasksDOM } from './DOM/TasksDOM';
 import { AddTaskDOM } from './DOM/AddTaskDOM';
 
 var firstProject = Project('First Project');
-var Projects = [firstProject];
+var secondProject = Project('Second Project');
+var currentProject = firstProject;
+var Projects = [firstProject, secondProject];
 
 
+
+
+const changeProject = (project) => {
+
+    currentProject = project;
+    TasksDOM.getTasksOnSite(currentProject);
+    AddTaskDOM.changeCurrentProject(currentProject, TasksDOM.getTasksOnSite);
+}
 
 
 // var lista = [
@@ -23,10 +33,12 @@ var Projects = [firstProject];
 //     console.log(index);
 //     if (index % 3 == 0) firstProject.deleteTaskFromProject(item);
 // });
-AddTaskDOM.changeCurrentProject(firstProject, TasksDOM.getTasksOnSite);
+
+// TasksDOM.getTasksOnSite(currentProject);
+AddTaskDOM.changeCurrentProject(currentProject, TasksDOM.getTasksOnSite);
 // firstProject.getProject();
 
 
-ProjectDOM.allProjectsDOM([firstProject]);
+ProjectDOM.allProjectsDOM(Projects, changeProject);
 
 TasksDOM.getTasksOnSite(firstProject);

@@ -1,19 +1,22 @@
 const TasksDOM = (() => {
-    let currentProject = document.querySelector('.task-header');
+    let currentProjectHeader = document.querySelector('.task-header');
     let currentProjectTasks = document.querySelector('.tasks');
     let currentTasks = [];
+    let currentProject;
     const assignCurrentTasks = project => {
         currentTasks = project.getProject();
+        currentProject = project;
     }
     const getTasksOnSite = (projectTasks) => {
         assignCurrentTasks(projectTasks);
         currentProject.innerHTML = "";
         currentProjectTasks.innerHTML = "";
         currentTasks.forEach(task => {
+
             let taskDisplay = document.createElement('div');
             let taskTitle = document.createElement('div');
             let taskDescription = document.createElement('div');
-
+            currentProjectHeader.textContent = currentProject.getProjectName();
             taskTitle.textContent = task.getTitle();
             taskDescription.textContent = task.getDescription();
 

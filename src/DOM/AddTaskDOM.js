@@ -1,12 +1,12 @@
 import { Task } from "../ToDoItem";
 
 const AddTaskDOM = (() => {
-
+    // let currentProjectHeader = document.querySelector('.task-header');
     let FormDisplayed = false;
     let currentProject, refreshDOM;
     let showTaskFormButton = document.querySelector('button#add');
     let addTaskDOM = document.querySelector('#add-new-task');
-    let addTaskContainerDOM = document.querySelector('.task-container');
+    // let addTaskContainerDOM = document.querySelector('.task-container');
     let taskTitleDOM = document.querySelector('#task-title');
     let taskDescriptionDOM = document.querySelector('#task-description');
     let taskPriorityDOM = document.querySelector('#task-priority');
@@ -32,6 +32,7 @@ const AddTaskDOM = (() => {
             newTask.setDescription(newTaskValues.description);
             newTask.setPriority(newTaskValues['priority']);
             currentProject.addTaskToProject(newTask);
+
             console.log(currentProject.getProject());
         }
 
