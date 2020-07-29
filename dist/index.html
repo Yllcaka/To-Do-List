@@ -17,25 +17,6 @@
             </div>
             <div class="projects">
                 <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
-                <div class="project">[Project Name]</div>
             </div>
         </div>
         <div id="Tasks">
@@ -178,7 +159,35 @@
             </div>
         </div>
     </div>
+    <div class="add-task-button">
+        <button id="add">
+            ADD
+        </button>
+    </div>
+    <div id="add-new-task">
+        <div class="task-container">
+            <div>
+                <label for="task-title">Task Name: </label>
+                <input type="text" name="task-title" id="task-title">
+            </div>
+            <div>
+                <label for="task-description">Task Description: </label>
+                <textarea name="task-description" id="task-description"></textarea>
 
+            </div>
+            <div>
+                <label for="task-priority">Choose Task Priority:</label>
+                <select id="task-priority" name="task-priority">
+                    <option value="low">Low</option>
+                    <option value="moderate" selected>Moderate</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <button id="add-task">Add</button>
+        </div>
+
+
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,15 @@
+const Project = (projectName) => {
+    let projectTasks = [];
+    const addTaskToProject = (task) => projectTasks.push(task);
+    const deleteTaskFromProject = (task) => {
+        projectTasks.splice(projectTasks.indexOf(task), 1);
+    }
+    const getProject = () => projectTasks;
+    const getProjectName = () => projectName;
+    return {
+        addTaskToProject, deleteTaskFromProject,
+        getProject, getProjectName
+    }
+};
+
+export { Project }
