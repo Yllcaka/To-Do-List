@@ -17,9 +17,11 @@ const TasksDOM = (() => {
             let taskTitle = document.createElement('div');
             let taskDescription = document.createElement('div');
             let deleteButton = document.createElement('button');
+            let dueDate = document.createElement('div');
             currentProjectHeader.textContent = currentProject.getProjectName();
             taskTitle.textContent = task.getTitle();
             taskDescription.textContent = task.getDescription();
+            dueDate.textContent = task.getDueDate();
 
             deleteButton.textContent = "X";
             deleteButton.classList.add('remove-task');
@@ -29,6 +31,7 @@ const TasksDOM = (() => {
                 taskDisplay.classList.add(`priority-${task.getPriority()}`);
                 taskTitle.classList.add('task-title');
                 taskDescription.classList.add('task-description');
+                dueDate.classList.add('due-date');
             })();
             const events = (() => {
                 deleteButton.addEventListener('click', () => {
@@ -41,6 +44,7 @@ const TasksDOM = (() => {
             taskDisplay.appendChild(taskTitle);
             taskTitle.appendChild(deleteButton);
             taskDisplay.appendChild(taskDescription);
+            taskDescription.appendChild(dueDate);
             currentProjectTasks.appendChild(taskDisplay);
         });
     }

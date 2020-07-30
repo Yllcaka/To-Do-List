@@ -10,6 +10,7 @@ const ProjectDOM = (() => {
     }
     const allProjectsDOM = (allProjects, action) => {
         projects = allProjects;
+        projectsDOM.innerHTML = "";
 
         projects.forEach(project => {
 

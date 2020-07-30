@@ -39,6 +39,8 @@ button#reset-button.datetime-reset-button {
     color: #25411B;
     padding: 30px;
     padding-right: 0;
+    display: flex;
+    align-items: center;
 }
 
 .project{
@@ -124,6 +126,11 @@ button#reset-button.datetime-reset-button {
     border-radius: 10px;
 }
 
+.due-date{
+    margin-top: 10px;
+}
+
+
 .remove-task{
     color: white;
     background-color: #D4655E;
@@ -164,7 +171,8 @@ button#reset-button.datetime-reset-button {
     margin: 20px;
 }
 
-.add-task-button #add{
+.add-task-button #add,
+#add-project-button{
     color: white;
     background-color: #8da086;
     border-radius: 10px;
@@ -174,26 +182,39 @@ button#reset-button.datetime-reset-button {
     cursor: pointer;
     transition: 0.1s ease-in-out;
 }
-.add-task-button #add:hover{
+.add-task-button #add:hover,
+#add-project-button:hover{
     background-color: #738f69;
     border-color: #738f69;
 }
 
+.project-header h2{
+    flex: 20;
+}
 
-#add-new-task {
+
+#add-project-button{
+    flex: 1;
+    margin-right: 10px;
+    
+}
+
+#add-new-task, #add-new-project {
     display: none;
     position: absolute;
     left: 50%;
     top: 50%;
 }
 
-#add-new-task label{
+#add-new-task label,
+#add-new-project label{
     display: block;
     color: white;
     /* width: 50%; */
 }
 
-#add-new-task .task-container{
+#add-new-task .task-container,
+#add-new-project .project-container{
     background-color: #a0c990;
     padding: 30px;
     border-radius: 10px;
@@ -205,10 +226,12 @@ button#reset-button.datetime-reset-button {
 }
 
 
-#add-new-task .task-container >div{
+#add-new-task .task-container >div,
+#add-new-project .project-container > div{
     margin-bottom: 30px;
 }
-#add-new-task button{
+#add-new-task button,
+#add-new-project button{
     color: white;
     background-color: #25411B;
     border-radius: 4px;
@@ -218,7 +241,8 @@ button#reset-button.datetime-reset-button {
     cursor: pointer;
 }
 
-#add-new-task button:hover{
+#add-new-task button:hover,
+#add-new-project button:hover{
     background-color: #496b3c;
     border-color: #496b3c;
 }

@@ -3,6 +3,8 @@ import { Project } from './Project';
 import { ProjectDOM } from './DOM/ProjectDOM';
 import { TasksDOM } from './DOM/TasksDOM';
 import { AddTaskDOM } from './DOM/AddTaskDOM';
+import { AddProjectDOM } from './DOM/AddProjectDOM';
+
 
 var firstProject = Project('First Project');
 var secondProject = Project('Second Project');
@@ -24,3 +26,5 @@ AddTaskDOM.changeCurrentProject(currentProject, TasksDOM.getTasksOnSite);
 
 
 ProjectDOM.allProjectsDOM(Projects, changeProject);
+
+export { Projects }

@@ -6,34 +6,36 @@ const AddTaskDOM = (() => {
     let currentProject, refreshDOM;
     let showTaskFormButton = document.querySelector('button#add');
     let addTaskDOM = document.querySelector('#add-new-task');
-    // let addTaskContainerDOM = document.querySelector('.task-container');
-    let taskTitleDOM = document.querySelector('#task-title');
-    let taskDescriptionDOM = document.querySelector('#task-description');
-    let taskPriorityDOM = document.querySelector('#task-priority');
     let addTaskButtonDOM = document.querySelector('#add-task');
+    let form = document.querySelector('.task-container');
     let newTaskValues = Object();
 
     const events = (() => {
         showTaskFormButton.addEventListener('click', () => {
             addTaskDOM.style.display = FormDisplayed ? "none" : "block";
-            showTaskFormButton.textContent = FormDisplayed ? "ADD" : "CLOSE";
+            showTaskFormButton.textContent = FormDisplayed ? "ADD TASK" : "CLOSE";
             FormDisplayed = !FormDisplayed;
         });
-        addTaskButtonDOM.addEventListener('click', () => {
-            newTaskValues['title'] = taskTitleDOM.value;
-            newTaskValues['description'] = taskDescriptionDOM.value;
-            newTaskValues['priority'] = taskPriorityDOM.value;
+        form.addEventListener('submit', (e) => {
+
+            event.preventDefault();
+
+            let formData = new FormData(e.target);
+            Array.from(formData.entries()).forEach(data => console.log(data));
+            // console.log(formData.getAll());
+            newTaskValues['title'] = formData.get('task-title');
+            newTaskValues['description'] = formData.get('task-description');
+            newTaskValues['priority'] = formData.get('task-priority');
+            newTaskValues['dueDate'] = formData.get('due-date');
             addTask();
             refreshDOM(currentProject);
-            console.log(refreshDOM);
         });
         const addTask = () => {
-            let newTask = Task(newTaskValues.title);
-            newTask.setDescription(newTaskValues.description);
+            let newTask = Task(newTaskValues['title']);
+            newTask.setDescription(newTaskValues['description']);
             newTask.setPriority(newTaskValues['priority']);
+            newTask.setDueDate(newTaskValues['dueDate']);
             currentProject.addTaskToProject(newTask);
-
-            console.log(currentProject.getProject());
         }
 
     })();

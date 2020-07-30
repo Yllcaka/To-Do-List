@@ -11,17 +11,19 @@ const Task = (title = "Task") => {
     const getTitle = () => title;
     const setPriority = (newPriority) => priority = newPriority;
     const getPriority = () => priority;
-
     const getTask = () => {
         console.log(priority);
         console.log(title);
         console.log(description);
     }
+    const setDueDate = (newDate) => date = newDate;
+    const getDueDate = () => date;
 
     return {
         setTitle, setDescription,
         getTask, getTitle, getDescription,
-        getPriority, setPriority
+        getPriority, setPriority,
+        setDueDate, getDueDate
     }
 }
 
