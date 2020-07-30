@@ -1,6 +1,6 @@
 import { Project } from '../Project';
 import { ProjectDOM } from './ProjectDOM';
-import { Projects } from '../index';
+import { Main } from '../MainStuff';
 const AddProjectDOM = (() => {
     let FormDisplayed = false;
     let showFormButton = document.querySelector('#add-project-button');
@@ -14,9 +14,9 @@ const AddProjectDOM = (() => {
             event.preventDefault();
             let formData = new FormData(e.target);
             let newProject = Project(formData.get('project-title'));
-            console.log(newProject.getProjectName());
-            Projects.push(newProject);
-            ProjectDOM.allProjectsDOM(Projects, newProject);
+            Main.addProject(newProject);
+            // ProjectDOM.allProjectsDOM(Projects, newProject);
+            // console.log(Projects);
         })
     })();
 })();
