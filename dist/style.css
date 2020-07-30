@@ -11,6 +11,15 @@ body{
     background: transparent;
 } */
 
+
+button::-moz-focus-inner {
+    border: 0;
+}
+  
+button#reset-button.datetime-reset-button {
+    display: none;
+}
+
 #To-Do-List{
     display: flex;
     flex-direction: row;
@@ -20,7 +29,7 @@ body{
     flex: 1;
     background: #E7FFDF;
     height: 100vh;
-    overflow: scroll;
+    overflow: auto;
 }
 .project-header{
     background: #E3E3DF;
@@ -41,7 +50,13 @@ body{
     color: #25411B;
     user-select: none;
     cursor: pointer;
+    transition: 0.1s ease-in-out;
     
+}
+
+.project:hover{
+    background-color: #70a15e;
+    color: #E3E3DF;
 }
 
 #Tasks{
@@ -50,7 +65,7 @@ body{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-left:2%;
     border-radius: 20px;
-    overflow: scroll;
+    overflow: auto;
     overflow-x: hidden;
     height: 100vh;
     
@@ -109,7 +124,18 @@ body{
     border-radius: 10px;
 }
 
-
+.remove-task{
+    color: white;
+    background-color: #D4655E;
+    border:1px solid #D4655E;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+.remove-task:hover{
+    background-color: #df7f78;
+    border-color: #df7f78;
+    color: #b5473f;
+}
 .priority-high {
     /* border-color: #EB7971; */
     background: #EB7971;;
@@ -203,22 +229,17 @@ select{
     border: 1px solid #576e4e;
 }
 
-/* .sign{
-    position: absolute;
-    font-size: 20px;
-    left: 60%;
-    top: 50%;
-    left: 0;
-} */
 
 
-/* 
 
-Responsive Stuff
-@media
-#To-Do-List{
-    flex-direction: column;
-}
-#To-Do-List > div{
-    flex: 1;
+/* Responsive Stuff */
+@media screen and (max-width: 768px) {
+    #Tasks{
+        flex: 1;
+        overflow-y: auto;
+    }
+    #To-Do-List{
+        flex-direction: column;
+        
+    }
 }

@@ -16,19 +16,30 @@ const TasksDOM = (() => {
             let taskDisplay = document.createElement('div');
             let taskTitle = document.createElement('div');
             let taskDescription = document.createElement('div');
+            let deleteButton = document.createElement('button');
             currentProjectHeader.textContent = currentProject.getProjectName();
             taskTitle.textContent = task.getTitle();
             taskDescription.textContent = task.getDescription();
 
-            let addClasses = () => {
+            deleteButton.textContent = "X";
+            deleteButton.classList.add('remove-task');
+
+            const addClasses = (() => {
                 taskDisplay.classList.add('task');
                 taskDisplay.classList.add(`priority-${task.getPriority()}`);
                 taskTitle.classList.add('task-title');
                 taskDescription.classList.add('task-description');
-            }
+            })();
+            const events = (() => {
+                deleteButton.addEventListener('click', () => {
+                    currentProject.deleteTaskFromProject(task);
+                    getTasksOnSite(currentProject);
+                })
+            })();
 
-            addClasses();
+            // addClasses();
             taskDisplay.appendChild(taskTitle);
+            taskTitle.appendChild(deleteButton);
             taskDisplay.appendChild(taskDescription);
             currentProjectTasks.appendChild(taskDisplay);
         });
