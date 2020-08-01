@@ -6,6 +6,8 @@ import { AddTaskDOM } from './DOM/AddTaskDOM';
 import { AddProjectDOM } from './DOM/AddProjectDOM';
 
 const Main = (() => {
+    //This is where all the main stuff gets combined
+    //And executed
     var firstProject = Project('First Project');
     var secondProject = Project('Second Project');
     var currentProject = firstProject;

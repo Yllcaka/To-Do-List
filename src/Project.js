@@ -1,4 +1,5 @@
 const Project = (projectName) => {
+    //The factory function to build a project
     let projectTasks = [];
     const addTaskToProject = (task) => projectTasks.push(task);
     const deleteTaskFromProject = (task) => {

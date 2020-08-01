@@ -1,11 +1,13 @@
 import { EditTaskDOM } from './EditTaskDOM';
 
 const TasksDOM = (() => {
+    //Here are the functions that have to do with the html of the Tasks
     let currentProjectHeader = document.querySelector('.task-header');
     let currentProjectTasks = document.querySelector('.tasks');
     let currentTasks = [];
     let currentProject;
     const assignCurrentTasks = project => {
+        //Change the current project and tasks
         currentTasks = project.getProject();
         currentProject = project;
     }
@@ -14,6 +16,7 @@ const TasksDOM = (() => {
         currentProject.innerHTML = "";
         currentProjectTasks.innerHTML = "";
         currentTasks.forEach(task => {
+            //This makes all the tasks get shown to the html
 
             let taskDisplay = document.createElement('div');
             let taskTitle = document.createElement('div');
@@ -30,6 +33,7 @@ const TasksDOM = (() => {
             deleteButton.classList.add('remove-task');
 
             const addClasses = (() => {
+                //Stored the modules in the "addClasses" IIFE to differentiate stuff better
                 taskDisplay.classList.add('task');
                 taskDisplay.classList.add(`priority-${task.getPriority()}`);
                 taskTitle.classList.add('task-title');
@@ -37,13 +41,16 @@ const TasksDOM = (() => {
                 dueDate.classList.add('due-date');
             })();
             const events = (() => {
+                //Stored the modules in the "events" IIFE to differentiate stuff better
                 let closed = false;
                 deleteButton.addEventListener('click', () => {
+                    //This deletes the tasks from the current project task list
                     currentProject.deleteTaskFromProject(task);
                     getTasksOnSite(currentProject);
                     closed = true;
                 });
                 taskDisplay.addEventListener('click', (e) => {
+                    //This is to show the editing form
                     if (!closed) {
                         EditTaskDOM.assignTask(task, e.currentTarget);
                     }
@@ -64,15 +71,4 @@ const TasksDOM = (() => {
     return { getTasksOnSite }
 })();
 
-{/* <div class="task priority-low">
-                    <div class="task-title">
-                        [Task Name]
-                    </div>
-                    <div class="task-description">
-                        [Task Description]
-                        <div class="due-date-content">
-                            Due Date: <span class="due-date">01/01/2001</span>
-                        </div>
-                    </div>
-                </div> */}
 export { TasksDOM }

@@ -1,4 +1,5 @@
 const EditTaskDOM = (() => {
+    //Here is done the editing of the tasks
     let task, taskDOM;
 
     let editForm = document.querySelector('#edit-task');
@@ -20,7 +21,7 @@ const EditTaskDOM = (() => {
         editDueDate.value = task.getDueDate();
     }
     const editTaskDOM = () => {
-
+        //Editing of the html of the Task
         let taskTitle = taskDOM.querySelector('.task-title span');
         let taskDescription = taskDOM.querySelector('.task-description');
         let dueDate = document.createElement('div');
@@ -37,6 +38,8 @@ const EditTaskDOM = (() => {
     }
     const events = (() => {
         editForm.addEventListener('submit', (e) => {
+            //When the form submission is executed the current Task
+            //Will get edited
             event.preventDefault();
             let formData = new FormData(e.target);
             editedTaskValues['title'] = formData.get('task-title');

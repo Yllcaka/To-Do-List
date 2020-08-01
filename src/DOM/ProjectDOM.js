@@ -1,4 +1,5 @@
 const ProjectDOM = (() => {
+    //Here all the projects will be shown on the html
     let projects = [];
     let currentProjectHeader = document.querySelector('.task-header');
     let projectsDOM = document.querySelector('.projects');

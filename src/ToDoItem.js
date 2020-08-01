@@ -1,10 +1,9 @@
-// import { format } from 'date-fns';
 
 const Task = (title = "Task") => {
+    //The factory function to build a task
     let priority = "high";
     let description = "No Description...";
     let date = new Date();
-    // let dueDate = format(date, "This is due for MM/DD/YYYY");
     const getDescription = () => description;
     const setDescription = (newDescription) => description = newDescription;
     const setTitle = (newTitle) => title = newTitle;
