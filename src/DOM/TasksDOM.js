@@ -1,3 +1,5 @@
+import { EditTaskDOM } from './EditTaskDOM';
+
 const TasksDOM = (() => {
     let currentProjectHeader = document.querySelector('.task-header');
     let currentProjectTasks = document.querySelector('.tasks');
@@ -15,11 +17,12 @@ const TasksDOM = (() => {
 
             let taskDisplay = document.createElement('div');
             let taskTitle = document.createElement('div');
+            let taskTitleContent = document.createElement('span');
             let taskDescription = document.createElement('div');
             let deleteButton = document.createElement('button');
             let dueDate = document.createElement('div');
             currentProjectHeader.textContent = currentProject.getProjectName();
-            taskTitle.textContent = task.getTitle();
+            taskTitleContent.textContent = task.getTitle();
             taskDescription.textContent = task.getDescription();
             dueDate.textContent = task.getDueDate();
 
@@ -34,14 +37,24 @@ const TasksDOM = (() => {
                 dueDate.classList.add('due-date');
             })();
             const events = (() => {
+                let closed = false;
                 deleteButton.addEventListener('click', () => {
                     currentProject.deleteTaskFromProject(task);
                     getTasksOnSite(currentProject);
+                    closed = true;
+                });
+                taskDisplay.addEventListener('click', (e) => {
+                    if (!closed) {
+                        EditTaskDOM.assignTask(task, e.currentTarget);
+                    }
+                    closed = false;
+
                 })
             })();
 
             // addClasses();
             taskDisplay.appendChild(taskTitle);
+            taskTitle.appendChild(taskTitleContent);
             taskTitle.appendChild(deleteButton);
             taskDisplay.appendChild(taskDescription);
             taskDescription.appendChild(dueDate);

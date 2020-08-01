@@ -172,7 +172,8 @@ button#reset-button.datetime-reset-button {
 }
 
 .add-task-button #add,
-#add-project-button{
+#add-project-button
+{
     color: white;
     background-color: #8da086;
     border-radius: 10px;
@@ -199,7 +200,8 @@ button#reset-button.datetime-reset-button {
     
 }
 
-#add-new-task, #add-new-project {
+#add-new-task, #add-new-project,
+#edit-task {
     display: none;
     position: absolute;
     left: 50%;
@@ -207,14 +209,16 @@ button#reset-button.datetime-reset-button {
 }
 
 #add-new-task label,
-#add-new-project label{
+#add-new-project label,
+#edit-task label{
     display: block;
     color: white;
     /* width: 50%; */
 }
 
 #add-new-task .task-container,
-#add-new-project .project-container{
+#add-new-project .project-container,
+#edit-task .edit-container{
     background-color: #a0c990;
     padding: 30px;
     border-radius: 10px;
@@ -227,11 +231,13 @@ button#reset-button.datetime-reset-button {
 
 
 #add-new-task .task-container >div,
-#add-new-project .project-container > div{
+#add-new-project .project-container > div
+#edit-task .edit-container > div{
     margin-bottom: 30px;
 }
 #add-new-task button,
-#add-new-project button{
+#add-new-project button,
+#edit-task button{
     color: white;
     background-color: #25411B;
     border-radius: 4px;
@@ -242,7 +248,8 @@ button#reset-button.datetime-reset-button {
 }
 
 #add-new-task button:hover,
-#add-new-project button:hover{
+#add-new-project button:hover,
+#edit-task button:hover{
     background-color: #496b3c;
     border-color: #496b3c;
 }

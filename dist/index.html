@@ -54,10 +54,35 @@
 
 
     </div>
+    <div id="edit-task">
+        <form class="edit-container">
+            <div>
+                <label for="task-title">Task Name: </label>
+                <input type="text" name="task-title" id="edit-title">
+            </div>
+            <div>
+                <label for="task-description">Task Description: </label>
+                <textarea name="task-description" id="edit-description"></textarea>
+
+            </div>
+            <div>
+                <label for="task-priority">Choose Task Priority:</label>
+                <select id="edit-priority" name="task-priority">
+                    <option value="low">Low</option>
+                    <option value="moderate" selected>Moderate</option>
+                    <option value="high">High</option>
+                </select>
+                <input type="date" name="due-date" id="edit-due-date" min="2020-01-01" value="2020-10-10" required>
+            </div>
+            <button id="edit-task-button" type="submit">Edit</button>
+        </form>
+
+
+    </div>
     <div id="add-new-project">
         <form class="project-container">
             <div>
-                <label for="project-title">Task Name: </label>
+                <label for="project-title">Project Name: </label>
                 <input type="text" name="project-title" id="project-title">
             </div>
 
